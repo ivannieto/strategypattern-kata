@@ -2,9 +2,12 @@ import java.util.List;
 
 public class AnalyticsController {
 
-    List<Long> getInteractionTimes(Attempt attempt) {
-      InteractionTimesService interactionTimesService = new InteractionTimesService();
 
-      return interactionTimesService.getInteractionTimes(attempt);
+    List<Long> getInteractionTimes(Attempt attempt, String type) {
+      InteractionTimesService interactionTimesService = new InteractionTimesService();
+      StrategyFactory strategyFactory = new StrategyFactory();
+      IStrategy strategy = strategyFactory.get(type);
+      
+      return interactionTimesService.getInteractionTimes(attempt, strategy);
     }
 }

@@ -27,7 +27,7 @@ public class AnalyticsControllerTest {
 
         Attempt attempt = new Attempt(times);
         AnalyticsController controller = new AnalyticsController();
-        List<Long> actualIts = controller.getInteractionTimes(attempt);
+        List<Long> actualIts = controller.getInteractionTimes(attempt, "mode1");
 
         Assert.assertEquals(expectedIts, actualIts);
     }
